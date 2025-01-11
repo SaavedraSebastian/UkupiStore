@@ -1,0 +1,2316 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UKUPI Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anaheim:wght@400..800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="icon" href="https://ukupi.pe/wp-content/uploads/2022/10/cropped-cropped-ukupimarket-32x32.png" sizes="32x32" />
+  <link rel="icon" href="https://ukupi.pe/wp-content/uploads/2022/10/cropped-cropped-ukupimarket-192x192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="https://ukupi.pe/wp-content/uploads/2022/10/cropped-cropped-ukupimarket-180x180.png" />
+
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+  <div class="preloader" style="display: block;">
+    <!-- Preloader content -->
+  </div>
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <a class="navbar-brand" href="index.html">
+      <img src="https://ukupi.pe/wp-content/uploads/2022/10/cropped-ukupimarket.png" alt="logo-empresa" class="logo-img">
+    </a>
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span <i class="fa-solid fa-bars"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" id="#Adornos" href="Adornos.html">ADORNOS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Hogar.html">HOGAR</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="caballero.html">ROPA Y ACCESORIOS</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="liqui.html">LIQUIDACIÓN</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-auto search-container">
+          <input type="search" id="buscador" placeholder="Buscar" aria-label="Buscar" onkeyup="buscarProductos()">
+          <button type="submit"><i class="fas fa-search"></i></button>
+      </div>
+            <div id="search-results" class="search-results"></div>
+        <div class="cart-container">
+          <a href="seguimiento.html" class="account-box">
+            <i class="fa-solid fa-truck-fast"></i>
+              <div class="account-text">
+                  <p class="greeting">Mis</p>
+                  <p class="account-name">Pedidos</p>
+              </div>
+          </a>
+          <div class="account-box" data-bs-toggle="modal" data-bs-target="#loginModal">
+              <i class="fas fa-user-circle"></i>
+              <div class="account-text">
+                  <p class="greeting">Hola</p>
+                  <p class="account-name">Mi cuenta</p>
+              </div>
+          </div>
+
+          <div class="carrito-icono" onclick="toggleCarrito()">
+            <span class="material-icons">shopping_cart</span>
+            <span id="carritoCount">0</span>
+          </div>
+          <div class="carrito" id="carrito">
+              <div class="carrito-header">
+                  <h4> <i class="fa-solid fa-cart-shopping carrito-iconos"></i>Carrito</h4>
+                  <button onclick="toggleCarrito()"><i class="fa-solid fa-x"></i></button>
+              </div>
+              <div class="carrito-body" id="carritoBody">
+
+                  <div id="emptyCartMessage" class="empty-cart-message">Tu carrito está vacío</div>
+
+              </div>
+            <div class="carrito-footer d-inline justify-content-between">
+                <div class="total">
+                    <strong>Total: S/. <span id="carritoTotal">0.00</span></strong>
+                </div>
+            </div>
+                <div class="realizar-compra">
+                    <a href="producto.html" class="boton-comprar">Comprar</a>
+                </div>
+              </div>
+        </div>
+    </div>
+  </nav>
+
+
+  <div id="carouselExampleFade" class="carousel slide carousel-fade">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="SALAS_2000x.webp" class="d-block w-100 slider-1" alt="Sala">
+      </div>
+      <div class="carousel-item">
+        <img src="4e46f706fcf732db34316dddc7e74c5664eb5270_BANNER-FULL-PAPÁ-REGALOS.jpg" class="d-block w-100 slider-1" alt="Regalos para papá">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!----seccion servicios!-->
+  <section class="beneficios">
+      <div class="container">
+          <div class="row px-5">
+              <div class="col-lg-3 col-md-6 col-12 d-flex align-items-center">
+                  <img src="https://novomodecol.vtexassets.com/arquivos/icon-padlock.svg" alt="icono-seguro" class="icon">
+                  <div>
+                      <p class="lh-copy vtex-rich-text-0-x-paragraph--title-deals-brand">COMPRA SEGURA</p>
+                      <p class="descripcion-informacion">Tu compra siempre será 100% segura en nuestro sitio</p>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-12 d-flex align-items-center">
+                  <img src="https://novomodecol.vtexassets.com/arquivos/icon-car-shipping.svg" alt="icono-despacho" class="icon">
+                  <div>
+                      <p class="lh-copy vtex-rich-text-0-x-paragraph--title-deals-brand">ENVÍO GRATIS</p>
+                      <p class="descripcion-informacion">Envío gratuito por compras iguales o mayores a S/.100</p>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-12 d-flex align-items-center">
+                  <img src="https://novomodecol.vtexassets.com/arquivos/icon-change.svg" alt="icono-garantia" class="icon">
+                  <div>
+                      <p class="lh-copy vtex-rich-text-0-x-paragraph--title-deals-brand">GARANTÍA DE SATISFACCIÓN</p>
+                      <p class="descripcion-informacion">Devolución de dinero garantizada</p>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-12 d-flex align-items-center">
+                 <img src="payments_24dp_FILL0_wght200_GRAD0_opsz24.png" alt="icono-pago" class="icon">
+                  <div>
+                      <p class="lh-copy vtex-rich-text-0-x-paragraph--title-deals-brand">PROMOCIONES EXCLUSIVAS</p>
+                      <p class="descripcion-informacion">Ofertas y descuentos exclusivos para nuestros clientes</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!--Productos-Destacados-->
+  <section class="venta-persona">
+    <div class="container">
+      <div class="row ">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
+             <a href="liquidacion.html">
+             <img src="Saavedra5.0.png" alt="anuncio-tienda" class="img-fluid animacion">
+               <div class="overlay">
+
+                 </div>
+               </a>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12">
+         <div class="image-container">
+                <a href="Adornos.html">
+                    <img src="Adornos (1).png" class="card-img-1" alt="imagen-hogar">
+                    <div class="overlay">
+
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12">
+          <div class="image-container">
+              <a href="Hogar.html">
+                <img src="hOGAR (9).png" class="card-img-2" alt="imagen-hogar">
+                  <div class="overlay">
+
+                  </div>
+
+              </a>
+          </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 col-6">
+          <div class="image-container">
+              <a href="caballero.html">
+                <img src="hombre.png" alt="imagen-hogar">
+                  <div class="overlay">
+
+                  </div>
+              </a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-6">
+          <div class="image-container">
+              <a href="caballero.html">
+                <img src="Dama (4).png" class="card-img-3" alt="imagen-hogar">
+                  <div class="overlay">
+
+                  </div>
+              </a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12">
+          <div class="image-container">
+              <a href="caballero.html">
+                <img src="Infantil.png" class="card-img-3" alt="imagen-hogar">
+                  <div class="overlay">
+
+                  </div>
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="productos-destacados mt-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center  px-2 mb-3">
+          <h1 class="prod-destacados">
+           !Miles de productos con descuentos increibles! </h1>
+
+        </div>
+        <div class="col-lg-12">
+          <div id="carouselAdornos" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row ">
+                  <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                      <div class="producto-tarjeta">
+                          <span class="etiqueta-venta">-60%</span>
+                          <figure class="producto-imagen">
+                              <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7437.Imagen.045615-300x300.jpg" alt="Taza navideña">
+                              <div class="iconos-producto">
+                                <a href="producto.html" target="_blank">
+                                    <span class="material-icons">visibility</span>
+                                </a>
+                                  <span class="material-icons">favorite_border</span>
+                                  <span class="material-icons">comment</span>
+                              </div>
+                          </figure>
+                          <div class="producto-descripcion">
+                              <span class="descripcion-ukupi">Taza navideña en caja para regalo</span>
+                              <div class="producto-precio">
+                                  <span class="precio-anterior">S/. 10.00</span>
+                                  <span class="precio-actual">S/. 6.00</span>
+                              </div>
+
+                              <div class="cantidad-carrito">
+                                  <div class="cantidad">
+                            <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                            <input type="text" class="cantidadProducto" value="1" readonly>
+                            <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                    </div>
+                                    </div>
+
+                            <a class="agregar-carrito" onclick="agregarAlCarrito(event)">
+                              <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                            </a>
+
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                    <div class="producto-tarjeta">
+                        <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7346.Imagen.045635-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="">
+                            <div class="iconos-producto">
+                              <a href="producto.html" target="_blank">
+                                  <span class="material-icons">visibility</span>
+                              </a>
+                                <span class="material-icons">favorite_border</span>
+                                <span class="material-icons"">comment</span>
+                            </div>
+                        </figure>
+                        <div class="producto-descripcion">
+                            <span class="descripcion-ukupi">
+                            Juego de taza navideña 9cm en caja para regalo incluye platito y cucharita</span>
+                            <div class="producto-precio">
+                                <span class="precio-actual">S/. 15.00</span>
+                            </div>
+                            <div class="cantidad-carrito">
+                                <div class="cantidad">
+                          <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                          <input type="text" class="cantidadProducto" value="1" readonly>
+                          <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                  </div>
+                              </div>
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event)">
+                            <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+
+
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                    <div class="producto-tarjeta">
+                        <span class="etiqueta-venta">Ultima unidad</span>
+                        <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7400.Imagen.050012-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                            <div class="iconos-producto">
+                              <a href="producto.html" target="_blank">
+                                  <span class="material-icons">visibility</span>
+                              </a>
+                                <span class="material-icons">favorite_border</span>
+                                <span class="material-icons">comment</span>
+                            </div>
+                        </figure>
+                        <div class="producto-descripcion">
+                            <span class="descripcion-ukupi">Bolsa de regalo navideño con agarre de cinta</span>
+                            <div class="producto-precio">
+                                <span class="precio-actual">S/. 6.00</span>
+                            </div>
+                          <div class="cantidad-carrito">
+                            <div class="cantidad">
+                          <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                          <input type="text" class="cantidadProducto" value="1" readonly>
+                          <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event)">
+                          <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                    <div class="producto-tarjeta">
+                        <span class="etiqueta-venta">-60%</span>
+                        <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7611.Imagen.045439-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                          <div class="iconos-producto">
+                            <a href="producto.html" target="_blank">
+                                <span class="material-icons">visibility</span>
+                            </a>
+                              <span class="material-icons">favorite_border</span>
+                              <span class="material-icons">comment</span>
+                          </div>
+                        </figure>
+                        <div class="producto-descripcion">
+                            <span class="descripcion-ukupi">Fuente navideña en variados diseños</span>
+                            <div class="producto-precio">
+                                <span class="precio-anterior">S/ 10.00</span>
+                                <span class="precio-actual">S/ 6.00</span>
+                            </div>
+                          <div class="cantidad-carrito">
+                            <div class="cantidad">
+                          <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                          <input type="text" class="cantidadProducto" value="1" readonly>
+                          <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event)">
+                          <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row">
+                  <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                    <div class="producto-tarjeta">
+                        <span class="etiqueta-venta">!Oferta!</span>
+                        <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/J6771.Imagen.045418-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                            <div class="iconos-producto">
+                              <a href="producto.html" target="_blank">
+                                  <span class="material-icons">visibility</span>
+                              </a>
+                                <span class="material-icons">favorite_border</span>
+                                <span class="material-icons">comment</span>
+                            </div>
+                        </figure>
+                        <div class="producto-descripcion">
+                            <span class="descripcion-ukupi">Corona navideña de 25 cm de diametro, 2 diseños</span>
+                            <div class="producto-precio">
+                                <span class="precio-actual">S/. 25.00</span>
+                            </div>
+                          <div class="cantidad-carrito">
+                            <div class="cantidad">
+                          <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                          <input type="text" class="cantidadProducto" value="1" readonly>
+                          <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event)">
+                          <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                    <div class="producto-tarjeta">
+                        <span class="etiqueta-venta">¡Oferta!</span>
+                        <figure class="producto-imagen">
+                          <img  src="https://ukupi.pe/wp-content/uploads/2022/12/J6475.Imagen.145852-300x300.jpg" alt="" loading="lazy">
+                            <div class="iconos-producto">
+                              <a href="producto.html" target="_blank">
+                                  <span class="material-icons">visibility</span>
+                              </a>
+                                <span class="material-icons">favorite_border</span>
+                                <span class="material-icons"">comment</span>
+                            </div>
+                        </figure>
+                        <div class="producto-descripcion">
+                            <span class="descripcion-ukupi">Funda de silla navideña x 6</span>
+                            <div class="producto-precio">
+                                <span class="precio-anterior">S/. 150.00</span>
+                                <span class="precio-actual">S/. 132.00</span>
+                            </div>
+                          <div class="cantidad-carrito">
+                            <div class="cantidad">
+                          <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                          <input type="text" class="cantidadProducto" value="1" readonly>
+                          <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event)">
+                          <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                    <div class="producto-tarjeta">
+                        <span class="etiqueta-venta">Última unidad</span>
+                        <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7015.Imagen.145750-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                            <div class="iconos-producto">
+                              <a href="producto.html" target="_blank">
+                                  <span class="material-icons">visibility</span>
+                              </a>
+                                <span class="material-icons">favorite_border</span>
+                                <span class="material-icons">comment</span>
+                            </div>
+                        </figure>
+                        <div class="producto-descripcion">
+                            <span class="descripcion-ukupi">Gorro Navideño con Luz</span>
+                            <div class="producto-precio">
+                                <span class="precio-actual">S/. 5.00</span>
+                            </div>
+                          <div class="cantidad-carrito">
+                            <div class="cantidad">
+                          <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                          <input type="text" class="cantidadProducto" value="1" readonly>
+                          <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event)">
+                          <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                    <div class="producto-tarjeta">
+                        <span class="etiqueta-venta">¡Oferta!</span>
+                        <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/11/J7702.Imagen.145654-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                            <div class="iconos-producto">
+                              <a href="producto.html" target="_blank">
+                                  <span class="material-icons">visibility</span>
+                              </a>
+                                <span class="material-icons">favorite_border</span>
+                                <span class="material-icons">comment</span>
+                            </div>
+                        </figure>
+                        <div class="producto-descripcion">
+                            <span class="descripcion-ukupi">Adorno navideño para el árbol o para pegar en ventana</span>
+                            <div class="producto-precio">
+                                <span class="precio-anterior">S/. 10.00</span>
+                                <span class="precio-actual">S/. 7.00</span>
+                            </div>
+                          <div class="cantidad-carrito">
+                            <div class="cantidad">
+                          <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                          <input type="text" class="cantidadProducto" value="1" readonly>
+                          <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event)">
+                          <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+            </div>
+            <button class="carousel-control-prev custom-prev" type="button" data-bs-target="#carouselAdornos" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next custom-next" type="button" data-bs-target="#carouselAdornos" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <section class="venta-persona">
+    <div class="container">
+      <div class="row ">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12">
+         <div class="image-container-2">
+                <a href="adornos.html">
+                    <img  src="1fcdf864-c9af-48dc-9a51-135c96cb4dfd.jpg" class="card-img-1" alt="imagen-hogar">
+
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12">
+           <div class="image-container-2">
+              <a href="adornos.html">
+                <img width="300" height="300" src="3ed42c93-34bf-4e64-b77c-5a520a2666fd___5e1c1f31c015738c5ae1657176510cd5.webp" class="card-img-2" alt="imagen-hogar">
+
+              </a>
+          </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 col-6">
+           <div class="image-container-2">
+              <a href="hombres.html">
+                <img src="hombre.png" alt="imagen-hogar">
+              </a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-6">
+           <div class="image-container-2">
+              <a href="adornos.html">
+                <img src="Dama (4).png" class="card-img-3" alt="imagen-hogar">
+              </a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12">
+           <div class="image-container-2">
+              <a href="adornos.html">
+                <img src="Infantil.png" class="card-img-3" alt="imagen-hogar">
+
+              </a>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
+             <a href="liqui.html">
+             <img  src="1804731d-f503-446c-a6ba-f747d24d24ad___c57be687645819827d9b3b5927124d90.webp" alt="anuncio-tienda" class="img-fluid animacion">
+               </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ultima-promo mt-4">
+    <div class="container">
+      <div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 col-12">
+       <div class="image-container-3">
+         <a href="liqui.html">
+         <img src="Saavedra5.2.png" alt="anuncio-tienda">
+           <div class="overlay">
+             </div>
+           </a>
+    </div>
+    </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 col-12">
+          <div class="image-container-3">
+             <a href="liqui.html">
+             <img src="Saavedra5.3.png" alt="anuncio-tienda">
+               <div class="overlay">
+                 </div>
+               </a>
+        </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 col-12">
+           <div class="image-container-3">
+             <a href="liqui.html">
+             <img src="Saavedra5.2.png" alt="anuncio-tienda">
+               <div class="overlay">
+                 </div>
+               </a>
+        </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 col-12">
+          <div class="image-container-3">
+             <a href="liqui.html">
+             <img src="Saavedra5.3.png" alt="anuncio-tienda">
+               <div class="overlay">
+                 </div>
+               </a>
+        </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+  </section>
+  <section class="productos-destacados">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center  px-2">
+          <h1 class="prod-destacados">
+           !Lo mejor del mes! </h1>
+
+        </div>
+        <div class="col-lg-12 px-4">
+          <div id="carouselLo-mejor" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row ">
+                  <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                      <div class="producto-tarjeta">
+                          <span class="etiqueta-venta">-60%</span>
+                          <figure class="producto-imagen">
+                              <img src="https://ukupi.pe/wp-content/uploads/2022/12/Uk064.Imagen.145547-300x300.jpg" alt="Taza navideña">
+                              <div class="iconos-producto">
+                                <a href="producto.html" target="_blank">
+                                    <span class="material-icons">visibility</span>
+                                </a>
+                                  <span class="material-icons">favorite_border</span>
+                                  <span class="material-icons">comment</span>
+                              </div>
+                          </figure>
+                          <div class="producto-descripcion">
+                              <span class="descripcion-ukupi">Taza de Café modelo A5315</span>
+                              <div class="producto-precio">
+                                  <span class="precio-anterior">S/. 10.00</span>
+                                  <span class="precio-actual">S/. 6.00</span>
+                              </div>
+
+                              <div class="cantidad-carrito">
+                                  <div class="cantidad">
+                            <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                            <input type="text" class="cantidadProducto" value="1" readonly>
+                            <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                    </div>
+                                    </div>
+
+                            <a class="agregar-carrito" onclick="agregarAlCarrito(event, 'Taza de Café modelo A5315',6.00,'https://ukupi.pe/wp-content/uploads/2022/12/Uk064.Imagen.145547-300x300.jpg')">
+                              <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                            </a>
+
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                    <div class="producto-tarjeta">
+                        <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/20221117_204033-scaled-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="">
+                            <div class="iconos-producto">
+                              <a href="producto.html" target="_blank">
+                                  <span class="material-icons">visibility</span>
+                              </a>
+                                <span class="material-icons">favorite_border</span>
+                                <span class="material-icons"">comment</span>
+                            </div>
+                        </figure>
+                        <div class="producto-descripcion">
+                            <span class="descripcion-ukupi">
+                            Bucanera juvenil talla standar Qiling</span>
+                            <div class="producto-precio">
+                                <span class="precio-actual">S/. 10.00</span>
+                            </div>
+                            <div class="cantidad-carrito">
+                                <div class="cantidad">
+                          <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                          <input type="text" class="cantidadProducto" value="1" readonly>
+                          <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                  </div>
+                              </div>
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Bucanera juvenil talla standar Qiling',10.00,'https://ukupi.pe/wp-content/uploads/2022/12/20221117_204033-scaled-300x300.jpg')">
+                            <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+
+
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                    <div class="producto-tarjeta">
+                        <span class="etiqueta-venta">Ultima unidad</span>
+                        <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7400.Imagen.050012-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                            <div class="iconos-producto">
+                              <a href="producto.html" target="_blank">
+                                  <span class="material-icons">visibility</span>
+                              </a>
+                                <span class="material-icons">favorite_border</span>
+                                <span class="material-icons">comment</span>
+                            </div>
+                        </figure>
+                        <div class="producto-descripcion">
+                            <span class="descripcion-ukupi">Bolsa de regalo navideño con agarre de cinta</span>
+                            <div class="producto-precio">
+                                <span class="precio-actual">S/. 6.00</span>
+                            </div>
+                          <div class="cantidad-carrito">
+                            <div class="cantidad">
+                          <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                          <input type="text" class="cantidadProducto" value="1" readonly>
+                          <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Bolsa de regalo navideño con agarre de cinta',6.00,'https://ukupi.pe/wp-content/uploads/2022/12/J7400.Imagen.050012-300x300.jpg')">
+                          <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                    <div class="producto-tarjeta">
+                        <span class="etiqueta-venta">-50%</span>
+                        <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/CH9998.Imagen.005409-300x300.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                            <div class="iconos-producto">
+                              <a href="producto.html" target="_blank">
+                                  <span class="material-icons">visibility</span>
+                              </a>
+                                <span class="material-icons">favorite_border</span>
+                                <span class="material-icons">comment</span>
+                            </div>
+                        </figure>
+                        <div class="producto-descripcion">
+                            <span class="descripcion-ukupi">Medias sonaja bebé niña térmica</span>
+                            <div class="producto-precio">
+                                <span class="precio-anterior">S/. 12.00</span>
+                                <span class="precio-actual">S/. 6.00</span>
+                            </div>
+                          <div class="cantidad-carrito">
+                            <div class="cantidad">
+                          <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                          <input type="text" class="cantidadProducto" value="1" readonly>
+                          <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Medias sonaja bebé niña térmica',6.00,'https://ukupi.pe/wp-content/uploads/2022/12/CH9998.Imagen.005409-300x300.png')">
+                          <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row">
+                  <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                    <div class="producto-tarjeta">
+                        <span class="etiqueta-venta">!Oferta!</span>
+                        <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-13-at-10.15.21-AM-300x300.jpeg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                            <div class="iconos-producto">
+                              <a href="producto.html" target="_blank">
+                                  <span class="material-icons">visibility</span>
+                              </a>
+                                <span class="material-icons">favorite_border</span>
+                                <span class="material-icons">comment</span>
+                            </div>
+                        </figure>
+                        <div class="producto-descripcion">
+                            <span class="descripcion-ukupi">Patilargas adulto a rayas Qiling</span>
+                            <div class="producto-precio">
+                                <span class="precio-actual">S/. 10.00</span>
+                            </div>
+                          <div class="cantidad-carrito">
+                            <div class="cantidad">
+                          <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                          <input type="text" class="cantidadProducto" value="1" readonly>
+                          <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Patilargas adulto a rayas Qiling',10.00,'https://ukupi.pe/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-13-at-10.15.21-AM-300x300.jpeg')">
+                          <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                    <div class="producto-tarjeta">
+                        <span class="etiqueta-venta">¡Oferta!</span>
+                        <figure class="producto-imagen">
+                          <img  src="https://ukupi.pe/wp-content/uploads/2022/12/WIN_20221215_21_27_29_Pro-300x300.jpg" alt="" loading="lazy">
+                            <div class="iconos-producto">
+                              <a href="producto.html" target="_blank">
+                                  <span class="material-icons">visibility</span>
+                              </a>
+                                <span class="material-icons">favorite_border</span>
+                                <span class="material-icons"">comment</span>
+                            </div>
+                        </figure>
+                        <div class="producto-descripcion">
+                            <span class="descripcion-ukupi">Liga para el cabello niñas en pomo x 30</span>
+                            <div class="producto-precio">
+                                <span class="precio-actual">S/. 4.00</span>
+                            </div>
+                          <div class="cantidad-carrito">
+                            <div class="cantidad">
+                          <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                          <input type="text" class="cantidadProducto" value="1" readonly>
+                          <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Liga para el cabello niñas en pomo x 30',4.00,'https://ukupi.pe/wp-content/uploads/2022/12/WIN_20221215_21_27_29_Pro-300x300.jpg')">
+                          <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                    <div class="producto-tarjeta">
+                        <span class="etiqueta-venta">Última unidad</span>
+                        <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/B4206.Imagen.045206-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                            <div class="iconos-producto">
+                              <a href="producto.html" target="_blank">
+                                  <span class="material-icons">visibility</span>
+                              </a>
+                                <span class="material-icons">favorite_border</span>
+                                <span class="material-icons">comment</span>
+                            </div>
+                        </figure>
+                        <div class="producto-descripcion">
+                            <span class="descripcion-ukupi">Billetera para dama en diversos diseños, cierre metálico</span>
+                            <div class="producto-precio">
+                                <span class="precio-actual">S/. 12.00</span>
+                            </div>
+                          <div class="cantidad-carrito">
+                            <div class="cantidad">
+                          <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                          <input type="text" class="cantidadProducto" value="1" readonly>
+                          <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Billetera para dama en diversos diseños, cierre metálico',12.00,'https://ukupi.pe/wp-content/uploads/2022/12/B4206.Imagen.045206-300x300.jpg')">
+                          <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                    <div class="producto-tarjeta">
+                        <span class="etiqueta-venta">-30%</span>
+                        <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/11/J7702.Imagen.145654-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                            <div class="iconos-producto">
+                              <a href="producto.html" target="_blank">
+                                  <span class="material-icons">visibility</span>
+                              </a>
+                                <span class="material-icons">favorite_border</span>
+                                <span class="material-icons">comment</span>
+                            </div>
+                        </figure>
+                        <div class="producto-descripcion">
+                            <span class="descripcion-ukupi">Adorno navideño para el árbol o para pegar en ventana</span>
+                            <div class="producto-precio">
+                                <span class="precio-anterior">S/. 10.00</span>
+                                <span class="precio-actual">S/. 7.00</span>
+                            </div>
+                          <div class="cantidad-carrito">
+                            <div class="cantidad">
+                          <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                          <input type="text" class="cantidadProducto" value="1" readonly>
+                          <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Adorno navideño para el árbol o para pegar en ventana',7.00,'https://ukupi.pe/wp-content/uploads/2022/11/J7702.Imagen.145654-300x300.jpg')">
+                          <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <!-- Agregar más elementos carousel-item según sea necesario -->
+            </div>
+            <button class="carousel-control-prev custom-prev" type="button" data-bs-target="#carouselLo-mejor" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next custom-next" type="button" data-bs-target="#carouselLo-mejor" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <section class="seccion-informacion mt-3"> 
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12">
+          <a href="seguimiento.html" class="text-decoration-none"> 
+            <div class="card text-center">
+              <div class="card-body">
+                <i class="fa-solid fa-phone fa-3x mb-3 iconos-informacion"></i>
+                <div>
+                  <h5 class="card-title">¡Contáctanos!</h5>
+                  <p class="card-text">
+                    ¿Tienes alguna pregunta o necesitas ayuda? Verifica el seguimiento de tu pedido aquí.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12">
+           <a href="seguimiento.html" class="text-decoration-none"> 
+          <div class="card text-center">
+            <div class="card-body">
+              <i class="fas fa-question-circle iconos-informacion"></i>
+              <div>
+                <h5 class="card-title">Preguntas Frecuentes</h5>
+                <p class="card-text">Encuentra respuestas rápidas a tus dudas en nuestra sección de preguntas frecuentes.</p>
+              </div>
+
+            </div>
+          </div>
+           </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12">
+           <a href="seguimiento.html" class="text-decoration-none"> 
+          <div class="card tex-center">
+            <div class="card-body">
+              <i class="fa-regular fa-credit-card iconos-informacion"></i>
+              <div>
+                <h5 class="card-title">Métodos de Pago</h5>
+                <p class="card-text">Aceptamos diversos métodos de pago seguros.</p>
+              </div>
+            </div>
+          </div>
+             </a>
+
+
+        </div>
+      </div>  
+    </div>
+  </div>
+  </div>
+  </section>
+          <section id="Adornos" class="seccion-productos-tienda mt-5">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
+                  <div class="seccion-adornos">
+                    <div class="d-flex align-items-center">
+                      <i class="fa-solid fa-couch icono-seccion"></i>
+                      <p class="adornos-seccion-titulo">Adornos</p>
+                    </div>
+                    <a href="Adornos.html">Ver todos  <i class="fa-solid fa-chevron-right"></i></a>
+                  </div>
+                  <div class="lines-container">
+                  <div class="underline"></div>
+                  <div class="thin-line"></div>
+                  </div>
+          <div class="productos-destacados">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div id="carouselHogar" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div class="row ">
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                              <div class="producto-tarjeta">
+                                  <span class="etiqueta-venta">-60%</span>
+                                  <figure class="producto-imagen">
+                                      <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7437.Imagen.045615-300x300.jpg" alt="Taza navideña">
+                                      <div class="iconos-producto">
+                                        <a href="producto.html" target="_blank">
+                                            <span class="material-icons">visibility</span>
+                                        </a>
+                                          <span class="material-icons">favorite_border</span>
+                                          <span class="material-icons">comment</span>
+                                      </div>
+                                  </figure>
+                                  <div class="producto-descripcion">
+                                      <span class="descripcion-ukupi">Taza navideña en caja para regalo</span>
+                                      <div class="producto-precio">
+                                          <span class="precio-anterior">S/. 10.00</span>
+                                          <span class="precio-actual">S/. 6.00</span>
+                                      </div>
+
+                                      <div class="cantidad-carrito">
+                                          <div class="cantidad">
+                                    <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                    <input type="text" class="cantidadProducto" value="1" readonly>
+                                    <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                            </div>
+                                            </div>
+
+                                    <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Taza navideña en caja para regalo',6.00,'https://ukupi.pe/wp-content/uploads/2022/12/J7437.Imagen.045615-300x300.jpg')">
+                                      <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                    </a>
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7346.Imagen.045635-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons"">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">
+                                    Juego de taza navideña 9cm en caja para regalo incluye platito y cucharita</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/. 15.00</span>
+                                    </div>
+                                    <div class="cantidad-carrito">
+                                        <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                          </div>
+                                      </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Juego de taza navideña 9cm en caja para regalo incluye platito y cucharita',15.00,'https://ukupi.pe/wp-content/uploads/2022/12/J7346.Imagen.045635-300x300.jpg')">
+                                    <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+
+
+                                </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">Ultima unidad</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7400.Imagen.050012-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Bolsa de regalo navideño con agarre de cinta</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/. 6.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Bolsa de regalo navideño con agarre de cinta',6.00,'https://ukupi.pe/wp-content/uploads/2022/12/J7400.Imagen.050012-300x300.jpg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">-60%</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7611.Imagen.045439-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Fuente navideña en variados diseños</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-anterior">S/. 10.00</span>
+                                        <span class="precio-actual">S/. 6.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Fuente navideña en variados diseños',6.00,'https://ukupi.pe/wp-content/uploads/2022/12/J7611.Imagen.045439-300x300.jpg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">!Oferta!</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/J6771.Imagen.045418-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Corona navideña de 25 cm de diametro, 2 diseños</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/. 25.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Corona navideña de 25 cm de diametro, 2 diseños',25.00,'https://ukupi.pe/wp-content/uploads/2022/12/J6771.Imagen.045418-300x300.jpg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">¡Oferta!</span>
+                                <figure class="producto-imagen">
+                                  <img  src="https://ukupi.pe/wp-content/uploads/2022/12/J6475.Imagen.145852-300x300.jpg" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons"">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Funda de silla navideña x 6</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-anterior">S/. 150.00</span>
+                                        <span class="precio-actual">S/. 132.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Funda de silla navideña x 6',132.00,'https://ukupi.pe/wp-content/uploads/2022/12/J6475.Imagen.145852-300x300.jpg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">Última unidad</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7015.Imagen.145750-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Gorro Navideño con Luz</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/. 5.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Gorro Navideño con Luz',5.00,'https://ukupi.pe/wp-content/uploads/2022/12/J7015.Imagen.145750-300x300.jpg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">¡Oferta!</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/11/J7702.Imagen.145654-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Adorno navideño para el árbol o para pegar en ventana</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-anterior">S/. 10.00</span>
+                                        <span class="precio-actual">S/. 7.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Adorno navideño para el árbol o para pegar en ventana',7.00,'Adorno navideño para el árbol o para pegar en ventana')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <!-- Agregar más elementos carousel-item según sea necesario -->
+                    </div>
+                    <button class="carousel-control-prev custom-prev" type="button" data-bs-target="#carouselHogar" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next custom-next" type="button" data-bs-target="#carouselHogar" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </section>
+  <section id="Hogar" class="seccion-productos-tienda mt-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
+          <div class="seccion-hogar">
+            <div class="d-flex align-items-center">
+            <i class="fa-solid fa-house-chimney icono-seccion"></i>
+          <p class="adornos-seccion-titulo">Hogar</p>
+            </div>
+            <a href="Adornos.html">Ver todos <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+          <div class="lines-container">
+            <div class="underline"></div>
+            <div class="thin-line"></div>
+            </div>
+          <div class="productos-destacados mt-3">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div id="carouselhogar" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div class="row ">
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                              <div class="producto-tarjeta">
+                                  <figure class="producto-imagen">
+                                      <img src="https://ukupi.pe/wp-content/uploads/2022/12/Uk064.Imagen.145547-300x300.jpg" alt="Taza navideña">
+                                      <div class="iconos-producto">
+                                        <a href="producto.html" target="_blank">
+                                            <span class="material-icons">visibility</span>
+                                        </a>
+                                          <span class="material-icons">favorite_border</span>
+                                          <span class="material-icons">comment</span>
+                                      </div>
+                                  </figure>
+                                  <div class="producto-descripcion">
+                                      <span class="descripcion-ukupi">Taza de Café modelo A5315</span>
+                                      <div class="producto-precio">
+                                          <span class="precio-actual">S/. 5.00</span>
+                                      </div>
+
+                                      <div class="cantidad-carrito">
+                                          <div class="cantidad">
+                                    <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                    <input type="text" class="cantidadProducto" value="1" readonly>
+                                    <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                            </div>
+                                            </div>
+
+                                    <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Taza de Café modelo A5315',5.00,'https://ukupi.pe/wp-content/uploads/2022/12/Uk064.Imagen.145547-300x300.jpg')">
+                                      <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                    </a>
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/Uk063.Imagen.145526-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons"">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">
+                                    Taza de Café modelo A5303</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/. 5.00</span>
+                                    </div>
+                                    <div class="cantidad-carrito">
+                                        <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                          </div>
+                                      </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Taza de Café modelo A5303',5.00,'https://ukupi.pe/wp-content/uploads/2022/12/Uk063.Imagen.145526-300x300.jpg')">
+                                    <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+
+
+                                </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">Ultima unidad</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/SMSCA-10T.Imagen.145851-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Secador de cocina hindú</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/. 7.50</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Secador de cocina hindú',7.50,'https://ukupi.pe/wp-content/uploads/2022/12/SMSCA-10T.Imagen.145851-300x300.jpg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">-50%</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/A5253.Imagen.045508-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Plato sopero 8 PLG 20.3×3.3 cm</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-anterior">S/. 10.00</span>
+                                        <span class="precio-actual">S/. 5.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Plato sopero 8 PLG 20.3×3.3 cm',5.00,'https://ukupi.pe/wp-content/uploads/2022/12/A5253.Imagen.045508-300x300.jpg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">!Oferta!</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/WhatsApp-Image-2022-09-14-at-2.48.41-PM-300x300.jpeg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Piso alfombra – Despierta tu creatividad</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/. 80.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Piso alfombra – Despierta tu creatividad',80.00,'https://ukupi.pe/wp-content/uploads/2022/12/WhatsApp-Image-2022-09-14-at-2.48.41-PM-300x300.jpeg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">¡Oferta!</span>
+                                <figure class="producto-imagen">
+                                  <img  src="https://ukupi.pe/wp-content/uploads/2022/12/WhatsApp-Image-2022-10-13-at-3.32.05-PM-2-300x300.jpeg" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons"">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Caja de plástico – Pequeño (escurridor y fechador)</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-anterior">S/. 33.00</span>
+                                        <span class="precio-actual">S/. 28.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Caja de plástico – Pequeño (escurridor y fechador)',28.00,'https://ukupi.pe/wp-content/uploads/2022/12/WhatsApp-Image-2022-10-13-at-3.32.05-PM-2-300x300.jpeg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">Última unidad</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/WhatsApp-Image-2022-10-13-at-3.32.05-PM-2-300x300.jpeg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Caja de plástico – Mediano (escurridor y fechador)</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/. 31.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Caja de plástico – Mediano (escurridor y fechador)',31.00,'https://ukupi.pe/wp-content/uploads/2022/12/WhatsApp-Image-2022-10-13-at-3.32.05-PM-2-300x300.jpeg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">¡Oferta!</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/mesaplegable-300x300.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Mesa plegable cuadrada de 60 cm</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-anterior">S/. 80.00</span>
+                                        <span class="precio-actual">S/. 70.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Mesa plegable cuadrada de 60 cm',70.00,'https://ukupi.pe/wp-content/uploads/2022/12/mesaplegable-300x300.png')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <!-- Agregar más elementos carousel-item según sea necesario -->
+                    </div>
+                    <button class="carousel-control-prev custom-prev" type="button" data-bs-target="#carouselhogar" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next custom-next" type="button" data-bs-target="#carouselhogar" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section id="Ropa" class="seccion-productos-tienda mt-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
+          <div class="seccion-ropa">
+             <div class="d-flex align-items-center">
+              <i class="fas fa-tshirt icono-seccion"></i>
+              <p class="adornos-seccion-titulo">Ropa y Accesorios</p>
+            </div>
+            <a href="Adornos.html">Ver todos <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+          <div class="lines-container">
+            <div class="underline"></div>
+            <div class="thin-line"></div>
+            </div>
+          <div class="productos-destacados mt-3">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div id="carouselRopa" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div class="row ">
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                              <div class="producto-tarjeta">
+                                  <figure class="producto-imagen">
+                                      <img src="https://ukupi.pe/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-7.09.25-PM-1-300x300.jpeg" alt="Taza navideña">
+                                      <div class="iconos-producto">
+                                        <a href="producto.html" target="_blank">
+                                            <span class="material-icons">visibility</span>
+                                        </a>
+                                          <span class="material-icons">favorite_border</span>
+                                          <span class="material-icons">comment</span>
+                                      </div>
+                                  </figure>
+                                  <div class="producto-descripcion">
+                                      <span class="descripcion-ukupi">Media Ultradeslizante varón modelo H802</span>
+                                      <div class="producto-precio">
+                                          <span class="precio-actual">S/ 5.00</span>
+                                      </div>
+
+                                      <div class="cantidad-carrito">
+                                          <div class="cantidad">
+                                    <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                    <input type="text" class="cantidadProducto" value="1" readonly>
+                                    <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                            </div>
+                                            </div>
+
+                                    <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Media Ultradeslizante varón modelo H802',5.00,'https://ukupi.pe/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-05-at-7.09.25-PM-1-300x300.jpeg')">
+                                      <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                    </a>
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/M89-300x300.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons"">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">
+                                    Medias largas térmicas modelo M89</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/ 6.00</span>
+                                    </div>
+                                    <div class="cantidad-carrito">
+                                        <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                          </div>
+                                      </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Medias largas térmicas modelo M89',6.00,'https://ukupi.pe/wp-content/uploads/2022/12/M89-300x300.png')">
+                                    <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+
+
+                                </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">Ultimas unidades</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/MX87-300x300.jpeg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Plantilla dama invierno modelo MX87</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/. 4.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Plantilla dama invierno modelo MX87',4.00,'https://ukupi.pe/wp-content/uploads/2022/12/MX87-300x300.jpeg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/20221117_205012-scaled-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Medias conejo larga dama modelo M891 y M894</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-anterior">S/. 10.00</span>
+                                        <span class="precio-actual">S/ 6.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Medias conejo larga dama modelo M891 y M894',8.00,'https://ukupi.pe/wp-content/uploads/2022/12/20221117_205012-scaled-300x300.jpg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">!Oferta!</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-13-at-10.15.21-AM-300x300.jpeg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Patilargas adulto a rayas Qiling</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/. 12.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Patilargas adulto a rayas Qiling',12.00,'https://ukupi.pe/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-13-at-10.15.21-AM-300x300.jpeg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">¡Oferta!</span>
+                                <figure class="producto-imagen">
+                                  <img  src="https://ukupi.pe/wp-content/uploads/2022/12/WhatsApp-Image-2022-08-17-at-5.32.56-PM-1-295x300.jpeg" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons"">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Gancho para el cabello Niña x 10 pzs</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/6.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Gancho para el cabello Niña x 10 pzs',6.00,'https://ukupi.pe/wp-content/uploads/2022/12/WhatsApp-Image-2022-08-17-at-5.32.56-PM-1-295x300.jpeg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">Última unidad</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/H79-300x300.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Medias de varón tobillera en marca Amanecer bambú diseño H79</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/. 5.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Medias de varón tobillera en marca Amanecer bambú diseño H79',5.00,'https://ukupi.pe/wp-content/uploads/2022/12/H79-300x300.png')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">¡Oferta!</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/939-300x300.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Adorno navideño para el árbol o para pegar en ventana</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-anterior">S/. 5.00</span>
+                                        <span class="precio-actual">S/. 4.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Medias de dama tobillera en marca Amanecer diseño M939',4.00,'https://ukupi.pe/wp-content/uploads/2022/12/939-300x300.png')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <!-- Agregar más elementos carousel-item según sea necesario -->
+                    </div>
+                    <button class="carousel-control-prev custom-prev" type="button" data-bs-target="#carouselRopa" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next custom-next" type="button" data-bs-target="#carouselRopa" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section id="Liquidacion" class="seccion-productos-tienda mt-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
+          <div class="seccion-liqui">
+            <div class="d-flex align-itemes-center">
+            <i class="fas fa-tags icono-seccion"></i>
+            <p class="adornos-seccion-titulo">Liquidación</p>
+            </div>
+            <a href="Adornos.html">Ver todos  <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+          <div class="lines-container">
+            <div class="underline"></div>
+            <div class="thin-line"></div>
+            </div>
+          <div class="productos-destacados mt-3">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div id="carouselliqui" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div class="row ">
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                              <div class="producto-tarjeta">
+                                  <span class="etiqueta-venta">-60%</span>
+                                  <figure class="producto-imagen">
+                                      <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7437.Imagen.045615-300x300.jpg" alt="Taza navideña">
+                                      <div class="iconos-producto">
+                                        <a href="producto.html" target="_blank">
+                                            <span class="material-icons">visibility</span>
+                                        </a>
+                                          <span class="material-icons">favorite_border</span>
+                                          <span class="material-icons">comment</span>
+                                      </div>
+                                  </figure>
+                                  <div class="producto-descripcion">
+                                      <span class="descripcion-ukupi">Taza navideña en caja para regalo</span>
+                                      <div class="producto-precio">
+                                          <span class="precio-anterior">S/. 10.00</span>
+                                          <span class="precio-actual">S/. 6.00</span>
+                                      </div>
+
+                                      <div class="cantidad-carrito">
+                                          <div class="cantidad">
+                                    <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                    <input type="text" class="cantidadProducto" value="1" readonly>
+                                    <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                            </div>
+                                            </div>
+
+                                    <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Taza navideña en caja para regalo',6.00,'https://ukupi.pe/wp-content/uploads/2022/12/J7437.Imagen.045615-300x300.jpg')">
+                                      <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                    </a>
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7346.Imagen.045635-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons"">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">
+                                    Juego de taza navideña 9cm en caja para regalo incluye platito y cucharita</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/ 15.00</span>
+                                    </div>
+                                    <div class="cantidad-carrito">
+                                        <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                          </div>
+                                      </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Juego de taza navideña 9cm en caja para regalo incluye platito y cucharita',15.00,'https://ukupi.pe/wp-content/uploads/2022/12/J7346.Imagen.045635-300x300.jpg')">
+                                    <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+
+
+                                </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">Ultima unidad</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7400.Imagen.050012-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Bolsa de regalo navideño con agarre de cinta</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/ 6.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Bolsa de regalo navideño con agarre de cinta',6.00,'https://ukupi.pe/wp-content/uploads/2022/12/J7400.Imagen.050012-300x300.jpg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">-60%</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7611.Imagen.045439-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Fuente navideña en variados diseños</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-anterior">S/ 10.00</span>
+                                        <span class="precio-actual">S/ 6.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Fuente navideña en variados diseños',132.00,'https://ukupi.pe/wp-content/uploads/2022/12/J7611.Imagen.045439-300x300.jpg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">!Oferta!</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/J6771.Imagen.045418-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Corona navideña de 25 cm de diametro, 2 diseños</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/ 25.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Corona navideña de 25 cm de diametro, 2 diseños',25.00,'https://ukupi.pe/wp-content/uploads/2022/12/J6771.Imagen.045418-300x300.jpg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">¡Oferta!</span>
+                                <figure class="producto-imagen">
+                                  <img  src="https://ukupi.pe/wp-content/uploads/2022/12/J6475.Imagen.145852-300x300.jpg" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons"">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Funda de silla navideña x 6</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-anterior">S/ 150.00</span>
+                                        <span class="precio-actual">S/ 132.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Funda de silla navideña x 6',132.00,'https://ukupi.pe/wp-content/uploads/2022/12/J6475.Imagen.145852-300x300.jpg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">Última unidad</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7015.Imagen.145750-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto" style="text-decoration: none;">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Gorro Navideño con Luz</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-actual">S/ 5.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Gorro Navideño con Luz',5.00,'https://ukupi.pe/wp-content/uploads/2022/12/J7015.Imagen.145750-300x300.jpg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-6 producto-destacado">
+                            <div class="producto-tarjeta">
+                                <span class="etiqueta-venta">¡Oferta!</span>
+                                <figure class="producto-imagen">
+                                  <img src="https://ukupi.pe/wp-content/uploads/2022/11/J7702.Imagen.145654-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
+                                    <div class="iconos-producto">
+                                      <a href="producto.html" target="_blank">
+                                          <span class="material-icons">visibility</span>
+                                      </a>
+                                        <span class="material-icons">favorite_border</span>
+                                        <span class="material-icons">comment</span>
+                                    </div>
+                                </figure>
+                                <div class="producto-descripcion">
+                                    <span class="descripcion-ukupi">Adorno navideño para el árbol o para pegar en ventana</span>
+                                    <div class="producto-precio">
+                                        <span class="precio-anterior">S/ 10.00</span>
+                                        <span class="precio-actual">S/ 7.00</span>
+                                    </div>
+                                  <div class="cantidad-carrito">
+                                    <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                                      </div>
+                                  </div>
+                                  <a class="agregar-carrito" onclick="agregarAlCarrito(event,'Adorno navideño para el árbol o para pegar en ventana',7.00,'https://ukupi.pe/wp-content/uploads/2022/11/J7702.Imagen.145654-300x300.jpg')">
+                                  <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                                  </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <!-- Agregar más elementos carousel-item según sea necesario -->
+                    </div>
+                    <button class="carousel-control-prev custom-prev" type="button" data-bs-target="#carouselliqui" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next custom-next" type="button" data-bs-target="#carouselliqui" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+      </div>
+    </section>
+  <section class="subcripcion-ukupi mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="text-center">
+            <h2 class="suscribete-a-ukupi">Suscríbete a Ukupi</h2>
+            <p class="text-center tex-form">Sé el primero en explorar nuestras nuevas colecciones y accede a ofertas especiales.<br> Disfruta de un descuento del 20% en tu próxima compra como bienvenida.</p>
+            <form id="suscribete-form" action="#" method="post" class="text-center">
+              <div class="input-group mb-3">
+                <input type="email" id="email" name="email" class="form-control" placeholder="Ingresa tu correo electrónico" required>
+                <div class="input-group-append">
+                  <button type="submit" class="btn-subcripcion">Suscribirse</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal" id="modal-success">
+      <div class="modal-content">
+        <span class="close" id="close-success">&times;</span>
+        <h2>¡Gracias por suscribirte!</h2>
+        <p>Has sido añadido a nuestra lista de suscriptores.</p>
+        <button class="btn-modal" id="btn-close-success">Cerrar</button>
+      </div>
+    </div>
+  </section>
+
+        <footer class="footer">
+          <div class="container">
+            <div class="row">
+              <div class="col text-center">
+                <p class="footer-text">&copy; 2024 Ukupi. Todos los derechos reservados.</p>
+                <p class="footer-links">
+                  <a href="terms.html">Términos y condiciones</a> | 
+                  <a href="privacy.html">Política de privacidad</a> | 
+                  <a href="contact.html">Contacto</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Registro en Ukupi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="wrapper">
+              <form action="">
+                  <div class="input-box">
+                      <label for="email" class="form-label"><b>Correo Electrónico</b></label>
+                      <input type="text" class="form-control" id="registerEmail" placeholder="Correo electrónico" required>
+                      <i class='bx bxs-envelope icono-modal'></i>
+                  </div>
+                  <div class="input-box">
+                      <label for="username" class="form-label"><b>Nombre de Usuario</b></label>
+                      <input type="text" class="form-control" id="registerUser" placeholder="Nombre de usuario" required>
+                      <i class='bx bxs-user'></i>
+                  </div>
+                <div class="input-box">
+                    <label for="registerPassword" class="form-label">
+                      <b>Contraseña</b>
+                    </label>
+                    <input type="password" class="form-control" id="registerPassword" placeholder="Contraseña" required>
+                </div>
+
+
+                  <div class="input-box">
+
+                      <label for="confirmPassword" class="form-label"><b> Confirmar Contraseña</b></label>
+                      <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar Contraseña" required>
+                      <i class='bx bxs-lock-alt'></i>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                  <div class="register-link">
+                      <p>¿Ya tienes cuenta? <a href="login3.html">Iniciar Sesión</a></p>
+                  </div>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Bienvenidos a Ukupi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="wrapper">
+              <form action="">
+                  <div class="input-box">
+                      <label for="email" class="form-label"><b>Usuario</b></label>
+                      <input type="text" class="form-control" id="inputUser" placeholder="Nombre de usuario" required>
+                      <i class='bx bxs-user'></i>
+                  </div>
+                  <div class="input-box">
+                      <label for="password" class="form-label"><b>Contraseña</b></label>
+                      <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña" required>
+                      <i class='bx bxs-lock-alt'></i>
+                  </div>
+                  <div class="remember-forgot">
+                      <label><input type="checkbox">  Recordarme</label>
+                      <a href="#">¿Olvidaste tu contraseña?</a>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+                  <div class="register-link">
+                    <p>¿No tienes cuenta? <a href="#registerModal" data-bs-toggle="modal" data-bs-dismiss="modal">Regístrate</a></p>
+
+                  </div>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+</body>
+
+</html>
