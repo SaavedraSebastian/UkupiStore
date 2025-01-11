@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liquidación-ukupi</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anaheim:wght@400..800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" href="https://ukupi.pe/wp-content/uploads/2022/10/cropped-cropped-ukupimarket-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://ukupi.pe/wp-content/uploads/2022/10/cropped-cropped-ukupimarket-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://ukupi.pe/wp-content/uploads/2022/10/cropped-cropped-ukupimarket-180x180.png" />
+
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+  <div class="preloader" style="display: block;">
+    <!-- Preloader content -->
+  </div>
+
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <a class="navbar-brand" href="index.html">
+      <img src="https://ukupi.pe/wp-content/uploads/2022/10/cropped-ukupimarket.png" alt="logo-empresa" class="logo-img">
+    </a>
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fa-solid fa-bars"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" id="#Adornos" href="Adornos.html">ADORNOS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Hogar.html">HOGAR</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="caballero.html">ROPA Y ACCESORIOS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="liqui.html">LIQUIDACIÓN</a>
+          </li>
+        </ul>
+      </div>
+        <div class="col-auto search-container">
+          <input type="search" id="buscador" placeholder="Buscar" aria-label="Buscar"onkeyup="buscarProductos()">
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+        <div id="search-results" class="search-results"></div>
+        <div class="cart-container">
+            <a href="seguimiento.html" class="account-box">
+                <i class="fa-solid fa-truck-fast"></i>
+                  <div class="account-text">
+                      <p class="greeting">Mis</p>
+                      <p class="account-name">Pedidos</p>
+                  </div>
+              </a>
+            <div class="account-box" data-bs-toggle="modal" data-bs-target="#loginModal">
+                  <i class="fas fa-user-circle"></i>
+                  <div class="account-text">
+                      <p class="greeting">Hola</p>
+                      <p class="account-name">Mi cuenta</p>
+                  </div>
+              </div>
+          <div class="carrito-icono" onclick="toggleCarrito()">
+            <span class="material-icons">shopping_cart</span>
+            <span id="carritoCount">0</span>
+          </div>
+            <div class="carrito" id="carrito">
+                  <div class="carrito-header">
+                      <h4> <i class="fa-solid fa-cart-shopping carrito-iconos"></i>Carrito</h4>
+                      <button onclick="toggleCarrito()"><i class="fa-solid fa-x"></i></button>
+                  </div>
+                  <div class="carrito-body" id="carritoBody">
+
+                      <div id="emptyCartMessage" class="empty-cart-message">Tu carrito está vacío</div>
+
+                  </div>
+                <div class="carrito-footer d-inline justify-content-between">
+                    <div class="total">
+                        <strong>Total: S/. <span id="carritoTotal">0.00</span></strong>
+                    </div>
+                </div>
+                    <div class="realizar-compra">
+                        <a href="producto.html" class="boton-comprar">Comprar</a>
+                    </div>
+                  </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+            <section class="productos-destacados mt-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 filter-section">
+                              <button class="btn btn-outline-secondary d-lg-none mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#filtros" aria-expanded="false" aria-controls="filtros">
+                                Mostrar Filtros
+                              </button>
+
+                            <div class="collapse d-lg-block" id="filtros">
+                                <h5 class="filter-title">Categorías</h5>
+                                <div class="filter-group">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="categoriaAdornos" value="Adornos">
+                                        <label class="form-check-label" for="categoriaSala">Adornos</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="categoriaHogar" value="Hogar">
+                                        <label class="form-check-label" for="categoriaHogar">Hogar</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="categoriaRopa" value="Ropa">
+                                        <label class="form-check-label" for="categoriaRopa">Ropa y accesorios</label>
+                                    </div>
+                                </div>
+                                <h5 class="filter-title">Marcas</h5>
+                                <div class="filter-group">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="marcaFacusa" value="Facusa">
+                                        <label class="form-check-label" for="marcaFacusa">Facusa</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="marcaLancaster" value="Lancaster">
+                                        <label class="form-check-label" for="marcaLancaster">Lancaster</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="marcaVans" value="Vans">
+                                        <label class="form-check-label" for="marcaVans">Vans</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="marcaDunkelvolk" value="Dunkelvolk">
+                                        <label class="form-check-label" for="marcaDunkelvolk">Dunkelvolk</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="marcaAmanecer" value="Amanecer">
+                                        <label class="form-check-label" for="marcaAmanecer">Amanecer</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="marcaQiling" value="Qiling">
+                                        <label class="form-check-label" for="marcaQiling">Qiling</label>
+                                    </div>
+                                </div>
+
+                                <h5 class="filter-title">Precio</h5>
+                                <div class="filter-group">
+                                    <input type="range" class="form-range" min="0" max="200" step="10" id="precio">
+                                    <div class="price-values">
+                                        <span>De: <span id="minPrice">0</span></span>
+                                        <span>A: <span id="maxPrice">200</span></span>
+                                    </div>
+                                </div>
+
+                                <h5 class="filter-title">Material</h5>
+                                <div class="filter-group">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="materialMadera" value="Madera">
+                                        <label class="form-check-label" for="materialMadera">Madera</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="materialMetal" value="Metal">
+                                        <label class="form-check-label" for="materialMetal">Metal</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="materialPlastico" value="Plastico">
+                                        <label class="form-check-label" for="materialPlastico">Plástico</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="materialVidrio" value="Vidrio">
+                                        <label class="form-check-label" for="materialVidrio">Vidrio</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="materialTela" value="Tela">
+                                        <label class="form-check-label" for="materialTela">Tela</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="materialAlgodon" value="Algodon">
+                                        <label class="form-check-label" for="materialAlgodon">Algodon</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="materialLana" value="Lana">
+                                        <label class="form-check-label" for="materialLana">Lana</label>
+                                    </div>
+                                </div>
+
+                                <h5 class="filter-title">Color</h5>
+                                <div class="filter-group">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="colorRed" value="Red">
+                                        <label class="form-check-label" for="colorRed">Rojo</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="colorBlack" value="Black">
+                                        <label class="form-check-label" for="colorBlack">Negro</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="colorWhite" value="White">
+                                        <label class="form-check-label" for="colorWhite">Blanco</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="colorGris" value="Gris">
+                                        <label class="form-check-label" for="colorGris">Gris</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="colorVariados" value="Variados">
+                                        <label class="form-check-label" for="colorVariados">Variados</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+        <div class="col-lg-9">
+            <div class="col-12 text-center">
+                  <h2 class="section-title">Liquidación</h2>
+              </div>
+            <div class="d-flex justify-content-between mb-3">
+                  <div>
+                      <label for="filtroOrden" class="mr-2">Ordenar por:</label>
+                      <select id="filtroOrden" class="form-control d-inline-block w-auto">
+                          <option value="precioAsc">Menor precio</option>
+                          <option value="precioDesc">Mayor precio</option>
+                          <option value="mejorPuntuacion">Mejor puntuación</option>
+                          <option value="recomendados">Recomendados</option>
+                      </select>
+                  </div>
+                  <div>
+                      <button class="btn btn-outline-secondary" id="gridViewBtn">
+                          <i class="fas fa-th"></i> Grid View
+                      </button>
+                      <button class="btn btn-outline-secondary ml-2" id="listViewBtn">
+                          <i class="fas fa-list"></i> List View
+                      </button>
+                  </div>
+              </div>
+          <div class="row" id=productlist>
+              <div class="col-lg-4 col-md-6 col-sm-12 producto-destacado"data-categoria="Adornos" data-marca="Facusa" data-precio="6" data-material="Vidrio" data-color="Blanco">
+                  <div class="producto-tarjeta">
+                      <span class="etiqueta-venta">-60%</span>
+                      <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7437.Imagen.045615-300x300.jpg" alt="Taza navideña">
+                          <div class="iconos-producto">
+                              <span class="material-icons" onclick="verProducto()">visibility</span>
+                              <span class="material-icons">favorite_border</span>
+                              <span class="material-icons">comment</span>
+                          </div>
+                      </figure>
+                      <div class="producto-descripcion">
+                          <span class="descripcion-ukupi">Taza navideña en caja para regalo</span>
+                          <div class="producto-precio">
+                              <span class="precio-anterior">S/. 10.00</span>
+                              <span class="precio-actual">S/. 6.00</span>
+                          </div>
+
+                          <div class="cantidad-carrito">
+                              <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event, 'Taza navideña en caja para regalo', 6.00, 'https://ukupi.pe/wp-content/uploads/2022/12/J7437.Imagen.045615-300x300.jpg')">
+                              <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 col-sm-12 producto-destacado"data-categoria="Adornos" data-marca="Facusa" data-precio="14.50" data-material="Vidrio" data-color="Red">
+                  <div class="producto-tarjeta">
+                      <span class="etiqueta-venta">-60%</span>
+                      <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7346.Imagen.045635-300x300.jpg" alt=" Juego de taza navideña 9cm en la caja para regalo incluye platito y cucharita ">
+                          <div class="iconos-producto">
+                              <span class="material-icons" onclick="verProducto()">visibility</span>
+                              <span class="material-icons">favorite_border</span>
+                              <span class="material-icons">comment</span>
+                          </div>
+                      </figure>
+                      <div class="producto-descripcion">
+                          <span class="descripcion-ukupi">Juego de taza navideña 9cm en la caja para regalo incluye platito y cucharita</span>
+                          <div class="producto-precio">
+                              <span class="precio-anterior">S/. 10.00</span>
+                              <span class="precio-actual">S/. 6.00</span>
+                          </div>
+
+                          <div class="cantidad-carrito">
+                              <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event, 'Juego de taza navideña 9cm en la caja para regalo incluye platito y cucharita ', 6.00, 'https://ukupi.pe/wp-content/uploads/2022/12/J7346.Imagen.045635-300x300.jpg ')">
+                              <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12 producto-destacado"data-categoria="Adornos" data-marca="Facusa" data-precio="2.50" data-material="Vidrio" data-color="Black">
+                  <div class="producto-tarjeta">
+                      <span class="etiqueta-venta">-50%</span>
+                      <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/Uk063.Imagen.145526-300x300.jpg" alt=" Taza de Café modelo A5303">
+                          <div class="iconos-producto">
+                              <span class="material-icons" onclick="verProducto()">visibility</span>
+                              <span class="material-icons">favorite_border</span>
+                              <span class="material-icons">comment</span>
+                          </div>
+                      </figure>
+                      <div class="producto-descripcion">
+                          <span class="descripcion-ukupi">Taza de Café modelo A5303</span>
+                          <div class="producto-precio">
+                              <span class="precio-anterior">S/. 5.00</span>
+                              <span class="precio-actual">S/. 2.50</span>
+                          </div>
+
+                          <div class="cantidad-carrito">
+                              <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event, 'Taza de Café modelo A5303', 14.50, 'https://ukupi.pe/wp-content/uploads/2022/12/Uk063.Imagen.145526-300x300.jpg')">
+                              <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12 producto-destacado"data-categoria="Adornos" data-marca="Facusa" data-precio="2.20" data-material="Tela" data-color="Blanco"data-color="Red">
+                  <div class="producto-tarjeta">
+                      <span class="etiqueta-venta">-70%</span>
+                      <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/SMSCA-10T.Imagen.145851-300x300.jpg" alt=" Secador de cocina hindú ">
+                          <div class="iconos-producto">
+                              <span class="material-icons" onclick="verProducto()">visibility</span>
+                              <span class="material-icons">favorite_border</span>
+                              <span class="material-icons">comment</span>
+                          </div>
+                      </figure>
+                      <div class="producto-descripcion">
+                          <span class="descripcion-ukupi">Secador de cocina hindú</span>
+                          <div class="producto-precio">
+                              <span class="precio-anterior">S/. 7.50</span>
+                              <span class="precio-actual">S/. 2.20</span>
+                          </div>
+
+                          <div class="cantidad-carrito">
+                              <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event, 'Secador de cocina hindú', 2.20, 'https://ukupi.pe/wp-content/uploads/2022/12/J7346.Imagen.045635-300x300.jpg ')">
+                              <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12 producto-destacado" data-categoria="Adornos" data-marca="Facusa" data-precio="7" data-material="Plastico" data-color="Variados">
+                  <div class="producto-tarjeta">
+                      <span class="etiqueta-venta">-50%</span>
+                      <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/11/J7702.Imagen.145654-300x300.jpg" alt=" Adorno navideño para el árbol o para pegar en ventana ">
+                          <div class="iconos-producto">
+                              <span class="material-icons" onclick="verProducto()">visibility</span>
+                              <span class="material-icons">favorite_border</span>
+                              <span class="material-icons">comment</span>
+                          </div>
+                      </figure>
+                      <div class="producto-descripcion">
+                          <span class="descripcion-ukupi">Adorno navideño para el árbol o para pegar en ventana</span>
+                          <div class="producto-precio">
+                              <span class="precio-anterior">S/. 10.00</span>
+                              <span class="precio-actual">S/. 5.00</span>
+                          </div>
+
+                          <div class="cantidad-carrito">
+                              <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event, 'Adorno navideño para el árbol o para pegar en ventana', 5.00, 'https://ukupi.pe/wp-content/uploads/2022/11/J7702.Imagen.145654-300x300.jpg')">
+                              <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12 producto-destacado" data-categoria="Hogar" data-marca="Facusa" data-precio="2.50" data-material="Tela" data-color="Red">
+                  <div class="producto-tarjeta">
+                      <span class="etiqueta-venta">-50%</span>
+                      <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/J7015.Imagen.145750-300x300.jpg" alt="Gorro Navideño con Luz">
+                          <div class="iconos-producto">
+                              <span class="material-icons" onclick="verProducto()">visibility</span>
+                              <span class="material-icons">favorite_border</span>
+                              <span class="material-icons">comment</span>
+                          </div>
+                      </figure>
+                      <div class="producto-descripcion">
+                          <span class="descripcion-ukupi">Gorro Navideño con Luz</span>
+                          <div class="producto-precio">
+                              <span class="precio-anterior">S/. 5.00</span>
+                              <span class="precio-actual">S/. 2.50</span>
+                          </div>
+
+                          <div class="cantidad-carrito">
+                              <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event, 'Gorro Navideño con Luz', 2.50, 'https://ukupi.pe/wp-content/uploads/2022/12/J7015.Imagen.145750-300x300.jpg')">
+                              <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12 producto-destacado"data-categoria="Hogar" data-marca="Facusa" data-precio="45" data-material="Tela" data-color="Red">
+                  <div class="producto-tarjeta">
+                      <span class="etiqueta-venta">-70%</span>
+                      <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/J6475.Imagen.145852-300x300.jpg" alt="Funda de silla navideña x 6">
+                          <div class="iconos-producto">
+                              <span class="material-icons" onclick="verProducto()">visibility</span>
+                              <span class="material-icons">favorite_border</span>
+                              <span class="material-icons">comment</span>
+                          </div>
+                      </figure>
+                      <div class="producto-descripcion">
+                          <span class="descripcion-ukupi">Funda de silla navideña x 6</span>
+                          <div class="producto-precio">
+                              <span class="precio-anterior">S/. 150.00</span>
+                              <span class="precio-actual">S/. 45.00</span>
+                          </div>
+
+                          <div class="cantidad-carrito">
+                              <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event, 'Funda de silla navideña x 6', 45.00, 'https://ukupi.pe/wp-content/uploads/2022/12/J6475.Imagen.145852-300x300.jpg')">
+                              <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12 producto-destacado"data-categoria="Hogar" data-marca="Facusa" data-precio="15" data-material="Plastico" data-color="Green">
+                  <div class="producto-tarjeta">
+                      <span class="etiqueta-venta">-40%</span>
+                      <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/J6771.Imagen.045418-300x300.jpg" alt="Corona navideña de 25 cm de diametro, 2 diseños">
+                          <div class="iconos-producto">
+                              <span class="material-icons" onclick="verProducto()">visibility</span>
+                              <span class="material-icons">favorite_border</span>
+                              <span class="material-icons">comment</span>
+                          </div>
+                      </figure>
+                      <div class="producto-descripcion">
+                          <span class="descripcion-ukupi">Corona navideña de 25 cm de diametro, 2 diseños</span>
+                          <div class="producto-precio">
+                              <span class="precio-anterior">S/. 25.00</span>
+                              <span class="precio-actual">S/. 15.00</span>
+                          </div>
+
+                          <div class="cantidad-carrito">
+                              <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event, 'Corona navideña de 25 cm de diametro, 2 diseños', 15.00, 'https://ukupi.pe/wp-content/uploads/2022/12/J6771.Imagen.045418-300x300.jpg')">
+                              <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12 producto-destacado"data-categoria="Ropa" data-marca="Lancaster" data-precio="5.00" data-material="Algodon" data-color="Variados">
+                  <div class="producto-tarjeta">
+                      <span class="etiqueta-venta">Oferta</span>
+                      <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/M943-300x300.jpeg" alt="Medias de dama larga Amanecer diseño M943">
+                          <div class="iconos-producto">
+                              <span class="material-icons" onclick="verProducto()">visibility</span>
+                              <span class="material-icons">favorite_border</span>
+                              <span class="material-icons">comment</span>
+                          </div>
+                      </figure>
+                      <div class="producto-descripcion">
+                          <span class="descripcion-ukupi">Medias de dama larga Amanecer diseño M943</span>
+                          <div class="producto-precio">
+                              <span class="precio-anterior">S/. 7.00</span>
+                              <span class="precio-actual">S/. 5.00</span>
+                          </div>
+
+                          <div class="cantidad-carrito">
+                              <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event, 'Medias de dama larga Amanecer diseño M943', 5.00, 'https://ukupi.pe/wp-content/uploads/2022/12/M943-300x300.jpeg')">
+                              <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12 producto-destacado"data-categoria="Ropa" data-marca="Vans" data-precio="3.20" data-material="Algodon" data-color="Variados">
+                  <div class="producto-tarjeta">
+                      <span class="etiqueta-venta">-20%</span>
+                      <figure class="producto-imagen">
+                          <img src=" https://ukupi.pe/wp-content/uploads/2022/12/MX87-300x300.jpeg" alt="Plantilla dama invierno modelo MX87">
+                          <div class="iconos-producto">
+                              <span class="material-icons" onclick="verProducto()">visibility</span>
+                              <span class="material-icons">favorite_border</span>
+                              <span class="material-icons">comment</span>
+                          </div>
+                      </figure>
+                      <div class="producto-descripcion">
+                          <span class="descripcion-ukupi">Plantilla dama invierno modelo MX87</span>
+                          <div class="producto-precio">
+                              <span class="precio-anterior">S/. 4.00</span>
+                              <span class="precio-actual">S/. 3.20</span>
+                          </div>
+
+                          <div class="cantidad-carrito">
+                              <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event, 'Plantilla dama invierno modelo MX87', 3.20, ' https://ukupi.pe/wp-content/uploads/2022/12/MX87-300x300.jpeg')">
+                              <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12 producto-destacado"data-categoria="Ropa" data-marca="Vans" data-precio="3" data-material="Algodon" data-color="Variados">
+                  <div class="producto-tarjeta">
+                      <span class="etiqueta-venta">-40%</span>
+                      <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/H79-300x300.png" alt="Medias de varón tobillera en marca Amanecer bambú diseño H79">
+                          <div class="iconos-producto">
+                              <span class="material-icons" onclick="verProducto()">visibility</span>
+                              <span class="material-icons">favorite_border</span>
+                              <span class="material-icons">comment</span>
+                          </div>
+                      </figure>
+                      <div class="producto-descripcion">
+                          <span class="descripcion-ukupi">Medias de varón tobillera en marca Amanecer bambú diseño H79</span>
+                          <div class="producto-precio">
+                              <span class="precio-anterior">S/. 5.00</span>
+                              <span class="precio-actual">S/. 3.00</span>
+                          </div>
+
+                          <div class="cantidad-carrito">
+                              <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event, ' Medias de varón tobillera en marca Amanecer bambú diseño H79', 3.00, 'https://ukupi.pe/wp-content/uploads/2022/12/H79-300x300.png')">
+                              <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12 producto-destacado"data-categoria="Ropa" data-marca="Vans" data-precio="6" data-material="Algodon" data-color="Variados">
+                  <div class="producto-tarjeta">
+                      <span class="etiqueta-venta">Oferta</span>
+                      <figure class="producto-imagen">
+                          <img src="https://ukupi.pe/wp-content/uploads/2022/12/M89-300x300.png" alt="Medias largas térmicas modelo M89">
+                          <div class="iconos-producto">
+                              <span class="material-icons" onclick="verProducto()">visibility</span>
+                              <span class="material-icons">favorite_border</span>
+                              <span class="material-icons">comment</span>
+                          </div>
+                      </figure>
+                      <div class="producto-descripcion">
+                          <span class="descripcion-ukupi">Medias largas térmicas modelo M89</span>
+                          <div class="producto-precio">
+                              <span class="precio-anterior">S/. 6.00</span>
+                              <span class="precio-actual">S/. 4.00</span>
+                          </div>
+
+                          <div class="cantidad-carrito">
+                              <div class="cantidad">
+                                  <a class="cantidad-btn" onclick="restarCantidad(event)">-</a>
+                                  <input type="text" class="cantidadProducto" value="1" readonly>
+                                  <a class="cantidad-btn" onclick="sumarCantidad(event)">+</a>
+                              </div>
+                          </div>
+
+                          <a class="agregar-carrito" onclick="agregarAlCarrito(event, 'Medias largas térmicas modelo M89', 4.00, 'https://ukupi.pe/wp-content/uploads/2022/12/M89-300x300.png')">
+                              <span class="material-icons icon">add_shopping_cart</span> Agregar al carrito
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+                    </div>
+                </div>
+
+            </section>
+     <div class="modal" id="modal-success">
+          <div class="modal-content">
+            <span class="close" id="close-success">&times;</span>
+            <h2>¡Gracias por suscribirte!</h2>
+            <p>Has sido añadido a nuestra lista de suscriptores.</p>
+            <button class="btn-modal" id="btn-close-success">Cerrar</button>
+          </div>
+        </div>
+      </section>
+
+            <footer class="footer">
+              <div class="container">
+                <div class="row">
+                  <div class="col text-center">
+                    <p class="footer-text">&copy; 2024 Ukupi. Todos los derechos reservados.</p>
+                    <p class="footer-links">
+                      <a href="terms.html">Términos y condiciones</a> | 
+                      <a href="privacy.html">Política de privacidad</a> | 
+                      <a href="contact.html">Contacto</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </footer>
+      <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="registerModalLabel">Registro en Ukupi</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="wrapper">
+                  <form action="">
+                      <div class="input-box">
+                          <label for="email" class="form-label"><b>Correo Electrónico</b></label>
+                          <input type="text" class="form-control" id="registerEmail" placeholder="Correo electrónico" required>
+                          <i class='bx bxs-envelope icono-modal'></i>
+                      </div>
+                      <div class="input-box">
+                          <label for="username" class="form-label"><b>Nombre de Usuario</b></label>
+                          <input type="text" class="form-control" id="registerUser" placeholder="Nombre de usuario" required>
+                          <i class='bx bxs-user'></i>
+                      </div>
+                    <div class="input-box">
+                        <label for="registerPassword" class="form-label">
+                          <i class="fa-solid fa-user"></i> <b>Contraseña</b>
+                        </label>
+                        <input type="password" class="form-control" id="registerPassword" placeholder="Contraseña" required>
+                    </div>
+
+
+                      <div class="input-box">
+
+                          <label for="confirmPassword" class="form-label"><b> Confirmar Contraseña</b></label>
+                          <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar Contraseña" required>
+                          <i class='bx bxs-lock-alt'></i>
+                      </div>
+                      <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                      <div class="register-link">
+                          <p>¿Ya tienes cuenta? <a href="login3.html">Iniciar Sesión</a></p>
+                      </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel">Bienvenidos a Ukupi</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="wrapper">
+                  <form action="">
+                      <div class="input-box">
+                          <label for="email" class="form-label"><b>Usuario</b></label>
+                          <input type="text" class="form-control" id="inputUser" placeholder="Nombre de usuario" required>
+                          <i class='bx bxs-user'></i>
+                      </div>
+                      <div class="input-box">
+                          <label for="password" class="form-label"><b>Contraseña</b></label>
+                          <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña" required>
+                          <i class='bx bxs-lock-alt'></i>
+                      </div>
+                      <div class="remember-forgot">
+                          <label><input type="checkbox">  Recordarme</label>
+                          <a href="#">¿Olvidaste tu contraseña?</a>
+                      </div>
+                      <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+                      <div class="register-link">
+                        <p>¿No tienes cuenta? <a href="#registerModal" data-bs-toggle="modal" data-bs-dismiss="modal">Regístrate</a></p>
+
+                      </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <p class="footer-text">&copy; 2024 Ukupi. Todos los derechos reservados.</p>
+            <p class="footer-links">
+              <a href="terms.html">Términos y condiciones</a> | 
+              <a href="privacy.html">Política de privacidad</a> | 
+              <a href="contact.html">Contacto</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="ropa.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
